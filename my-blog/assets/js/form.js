@@ -1,17 +1,18 @@
-document.getElementById('blog-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.getElementById('blog-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
+    const username = document.getElementById('username').value.trim();
+    const title = document.getElementById('title').value.trim();
+    const content = document.getElementById('content').value.trim();
 
     if (!username || !title || !content) {
-        document.getElementById('form-message').textContent = 'Please complete all fields.';
+        alert('Please complete the form.');
         return;
     }
 
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
-    posts.push({ username, title, content });
+    const post = { username, title, content };
+    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+    posts.push(post);
     localStorage.setItem('posts', JSON.stringify(posts));
 
     window.location.href = 'blog.html';
