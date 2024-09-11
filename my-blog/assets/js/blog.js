@@ -1,31 +1,17 @@
-document.getElementById('back-button').addEventListener('click', function() {
-    window.location.href = 'index.html';
-});
-
-function renderPosts() {
-    const postsContainer = document.getElementById('posts-container');
-    postsContainer.innerHTML = '';
-
+window.addEventListener('load', function() {
+    const postsList = document.getElementById('posts-list');
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+    postsList.innerHTML = ''; // Clear any existing content
 
     posts.forEach(post => {
         const postElement = document.createElement('div');
-        postElement.className = 'post';
-
-        const postTitle = document.createElement('h2');
-        postTitle.textContent = post.title;
-        postElement.appendChild(postTitle);
-
-        const postContent = document.createElement('p');
-        postContent.textContent = post.content;
-        postElement.appendChild(postContent);
-
-        const postAuthor = document.createElement('p');
-        postAuthor.textContent = `Author: ${post.username}`;
-        postElement.appendChild(postAuthor);
-
-        postsContainer.appendChild(postElement);
+        postElement.classList.add('post');
+        postElement.innerHTML = `
+            <h2>${post.title}</h2>
+            <p><strong>Author:</strong> ${post.username}</p>
+            <p>${post.content}</p>
+        `;
+        postsList.appendChild(postElement);
     });
-}
-
-document.addEventListener('DOMContentLoaded', renderPosts);
+});
