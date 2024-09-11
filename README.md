@@ -18,7 +18,7 @@ JavaScript
 License
 MIT License
 Github Repo: https://github.com/aadiaz10/Personal-Blog
-Deployed Url:
+Deployed Url: https://aadiaz10.github.io/Personal-Blog/
 Screenshots: ![Module 4 screenshot](https://github.com/user-attachments/assets/e3e4bd55-b78a-49a7-87c9-e4d91d7ae678)
 ![Screenshot module 4 ](https://github.com/user-attachments/assets/24396d5e-db7b-4739-b743-b28329469ef7)
 
